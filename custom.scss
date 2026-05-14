@@ -18,7 +18,7 @@ h1, h2, h3, h4 {
   font-family: $headings-font-family;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin-top: 2.2em;
+  margin-top: 2.4em;
   margin-bottom: 0.6em;
 }
 
@@ -30,8 +30,8 @@ h1 {
 }
 
 h2 {
-  font-size: 1.25em;
-  color: #222;
+  font-size: 1.22em;
+  color: #1a1a1a;
 }
 
 .subtitle {
@@ -41,10 +41,10 @@ h2 {
   margin-top: 0.1em;
 }
 
-/* Widen toc sidebar */
+/* TOC sidebar */
 #quarto-sidebar {
   font-family: $font-family-sans-serif;
-  font-size: 0.85em;
+  font-size: 0.84em;
 }
 
 /* Math blocks */
@@ -89,27 +89,35 @@ h2 {
   margin-bottom: 0.3em;
 }
 
-/* Pull quotes */
+/* Pull quotes — prominent, centered */
 blockquote {
-  border-left: 3px solid #ccc;
-  color: #444;
-  font-style: italic;
-  padding-left: 1em;
-  margin-left: 0;
+  border: none;
+  border-top: 2px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+  font-family: $font-family-sans-serif;
+  font-size: 1.08em;
+  font-style: normal;
+  font-weight: 500;
+  color: #222;
+  padding: 1.1em 1.5em;
+  margin: 2em 0;
+  text-align: center;
+  line-height: 1.55;
 }
 
 /* Abstract */
 .abstract {
   font-family: $font-family-sans-serif;
-  font-size: 0.92em;
+  font-size: 0.91em;
   color: #333;
   border: 1px solid #e0e0e0;
   padding: 1.2em 1.5em;
   margin-bottom: 2em;
   background: #fafafa;
+  line-height: 1.65;
 }
 
-/* Equations get a little breathing room */
+/* Equations */
 p + .math, .math + p {
   margin-top: 0.8em;
 }
@@ -132,4 +140,51 @@ p + .math, .math + p {
 .proof::after {
   content: " □";
   float: right;
+}
+
+/* Animation containers */
+.anim-container {
+  margin: 2.2em auto;
+  max-width: 580px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.anim-canvas {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.anim-caption {
+  font-family: $font-family-sans-serif;
+  font-size: 0.80em;
+  color: #666;
+  padding: 0.55em 1em 0.75em;
+  border-top: 1px solid #eee;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Drop caps on first paragraph of each section (after h2) */
+h2 + p::first-letter {
+  font-family: $font-family-sans-serif;
+  font-size: 3.2em;
+  font-weight: 700;
+  line-height: 0.78;
+  float: left;
+  margin: 0.06em 0.08em 0 0;
+  color: #1a1a1a;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  h1 { font-size: 1.45em; }
+  h2 { font-size: 1.1em; }
+  .abstract { padding: 0.9em 1em; font-size: 0.88em; }
+  blockquote { font-size: 0.98em; padding: 0.9em 1em; }
+  .anim-container { margin: 1.6em auto; }
+  h2 + p::first-letter { font-size: 2.5em; }
 }
