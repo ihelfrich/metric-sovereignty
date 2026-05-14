@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Metric Sovereignty"
+  description: "Social choice, AI directives, and capitalist democracy — Ian T. Helfrich"
+  repo-url: https://github.com/ihelfrich/metric-sovereignty
+  repo-actions: [edit, issue]
+  page-navigation: false
+  back-to-top-navigation: true
+  navbar:
+    left:
+      - text: "Paper"
+        href: index.qmd
+      - text: "Proofs"
+        href: appendix/proofs.qmd
+    right:
+      - icon: github
+        href: https://github.com/ihelfrich/metric-sovereignty
+        aria-label: GitHub
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+    toc: true
+    toc-depth: 2
+    toc-title: "Sections"
+    number-sections: false
+    html-math-method: mathjax
+    mainfont: "Georgia, serif"
+    fontsize: 1.05em
+    linestretch: 1.75
+    max-width: 760px
+    smooth-scroll: true
+    code-fold: true
+
+bibliography: references.bib

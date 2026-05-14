@@ -1,0 +1,268 @@
+---
+title: "Metric Sovereignty"
+subtitle: "Social choice, AI directives, and capitalist democracy"
+author: "Ian T. Helfrich"
+date: "May 2026"
+status: "living draft"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+::: {.status-badge}
+Living Draft
+:::
+
+::: {.abstract}
+**Abstract.** Arrow's theorem says no rule can convert unrestricted individual rankings over three or more alternatives into a coherent collective ranking while satisfying four individually reasonable conditions. AI-assisted governance does not repeal this. It changes where the impossibility lands. A learned political geometry can embed voters and policies in a latent space, then select the alternative that minimizes some weighted distance or loss. That can reveal structure that ballots flatten. But the metric is not innocent. The choice of dimensions, weights, loss function, training data, and directive becomes a site of political authority. In capitalist representative democracies, concentrated economic power already acts through this channel by shaping which preferences become legible, which harms remain far, and which dimensions of welfare survive political compression. The term for this is metric sovereignty. AI can expose that geometry or hide it more efficiently. Which one it does depends on choices that Arrow's theorem tells us cannot be made without someone making them.
+:::
+
+---
+
+## Three voters, one circle
+
+Three voters can make a circle.
+
+One ranks A above B, and B above C. Another ranks B above C, and C above A. A third ranks C above A, and A above B. Nobody is confused. The preferences are coherent. The people are rational, fully informed, and not being obstinate.
+
+Put them together and the majority says A beats B. Also that B beats C. Also that C beats A.
+
+This is Condorcet's paradox, named for an 18th-century French mathematician who noticed it while trying to design a better electoral system for a country that was, at the time, very busy executing its aristocracy. The timing was bad. The insight was not.
+
+Arrow made the wound precise in 1951. A society cannot take unrestricted individual preference rankings over three or more alternatives and produce a coherent collective ranking while satisfying four conditions that seem, individually, like the minimum requirements of decency:
+
+1. If everyone prefers A to B, so does the social ranking.
+2. The social comparison of A and B depends only on how individuals compare A and B, not on their opinions about some third alternative C.
+3. No single person's preferences always determine the social ranking.
+4. The social ranking is transitive.
+
+None of these is outrageous. Together they are impossible.
+
+The usual lesson is about voting systems: majority rule cycles, Borda count violates condition 2, approval voting has its own problems, everything has its own problems, and we muddle through. That lesson is accurate and too small.
+
+Arrow's theorem is not primarily about which ballot design to adopt. It is about whether a coherent collective will exists to be expressed at all. The impossibility is not a gap between the ideal and the achievable. It is a gap inside the ideal itself. Any rule that takes individual preferences seriously as inputs and tries to produce something coherent as output must either restrict what preferences are allowed, violate one of those four conditions, or concentrate authority in one actor or one technical parameter. There is no fourth option.
+
+This matters enormously right now, because a certain kind of AI governance proposal claims to have found the fourth option.
+
+## The tempting escape
+
+The appeal is real. Start with it seriously.
+
+Representative democracy as currently practiced is, among other things, a compression algorithm. It takes the full, high-dimensional welfare space of a polity and squeezes it into a party platform, a slate of candidates, a ballot measure, a committee vote. Most of that compression happens before anyone casts a vote, in primary systems and fundraising markets and media frames and polling categories that decide which differences survive into the political arena and which do not.
+
+The AI-geometric alternative starts from a different premise: what if we could represent the actual distribution of preferences, without forcing them through a party-primary bottleneck? Give voters a richer input. Learn where they sit in policy space. Represent candidates and policies as points in the same space. Choose the alternative that minimizes some well-specified distance from the electorate.
+
+This has a long academic history in the spatial theory of voting. The median voter theorem, in one dimension with single-peaked preferences, says the median voter's ideal point beats anything else by majority rule. Extend to multiple dimensions, find the center of the distribution, let the geometry do what political parties cannot.
+
+An AI system trained on rich behavioral data might estimate that geometry better than any poll, primary, or focus group. It might surface latent cleavages that party systems suppress. It might represent what people actually want rather than what two parties have decided to offer them.
+
+The appeal is not naive. It is the right question asked with the wrong confidence about where the answer lives.
+
+## The formal object
+
+Here is what the decision rule actually contains.
+
+Voters are $N = \{1, \ldots, n\}$. Alternatives are $X = \{A, B, C, \ldots\}$. In classical social choice, each person has a preference ordering $\succ_i$ over alternatives, and the social welfare function $F$ maps all those orderings to a single collective ordering:
+
+$$F : \mathcal{P}(X)^n \to \mathcal{R}(X)$$
+
+Read it plainly: everyone's rankings go in, one ranking comes out. Arrow says this cannot satisfy conditions 1 through 4 simultaneously.
+
+Now change the input. Suppose each person has a latent location:
+
+$$z_i \in \mathcal{M}$$
+
+Each alternative also has a location:
+
+$$y_a \in \mathcal{M}$$
+
+where $\mathcal{M}$ is some learned political or welfare space. Individual utility looks like:
+
+$$u_i(a) = -d(z_i, y_a)^2 + \varepsilon_{ia}$$
+
+Person $i$ likes alternative $a$ more when $a$ is close to them in the latent space, plus some noise. A metric social choice rule then selects:
+
+$$a^* \in \arg\min_{a} \sum_i w_i \, d(z_i, y_a)^p$$
+
+Choose the alternative that minimizes the weighted distance from the public. Then add a directive $\delta$ — a constitutional constraint, a welfare criterion, a planning objective, a learned policy principle. Let $R(a, \delta)$ measure how badly alternative $a$ violates the directive. The full rule becomes:
+
+$$a^* \in \arg\min_{a} \Bigl[ \sum_i w_i \, d(z_i, y_a)^p + \lambda \, R(a, \delta) \Bigr]$$
+
+Read the bracketed expression in plain English:
+
+*Choose the alternative closest to the electorate, after deciding whose distance counts, how distance is measured, how much large alienation hurts, what the directive demands, and how strongly the directive can override voter proximity.*
+
+Every parameter in that sentence is a political choice. The weights $w_i$. The exponent $p$. The space $\mathcal{M}$ and its metric $d$. The directive $\delta$. The multiplier $\lambda$ that determines how far the directive can override everyone's preferences. None of these are neutral technical settings. They are answers to political questions, given in the language of optimization rather than legislation.
+
+The question is not whether this rule is bad. The question is whether it is neutral. It is not.
+
+## Axiom relocation
+
+The phrase that does most of the work in this paper is **axiom relocation**. AI-assisted social choice can appear to escape Arrow because the object has changed. The system no longer aggregates bare ordinal rankings into a social ranking. It learns a representation, restricts the domain, defines a metric, and optimizes a loss. Arrow seems not to apply.
+
+Arrow still applies. The impossibility has moved.
+
+**Unrestricted domain.** A latent geometry assumes preferences have structure. They are smooth, low-dimensional, recoverable from observed behavior, stable enough to fit a model. That is a domain restriction. It excludes the kind of idiosyncratic, high-dimensional, non-Euclidean preference structure that real political disagreement often has. The restriction is not wrong to make. It is a political assumption that some preferences are legible to the model and others are not. Whose preferences are legible is a political question.
+
+**Pareto.** Regularization can override unanimity. If everyone in the training data weakly prefers one alternative, but the model treats that pattern as overfitting risk, or as a majority preference that conflicts with the directive $\delta$, the system can move away from unanimous preference. Pareto can fail at the regularization stage without anyone noticing, because the output still looks like an optimization result rather than an override.
+
+**Independence of irrelevant alternatives.** This is where the formal violation is clearest. Suppose the system learns an embedding $E$ that maps the full alternative set $X$ into $\mathcal{M}$ jointly. The position of alternative $A$ in the latent space is determined partly by its relationship to $B$, $C$, and every other option in the training set. Now add a new alternative $C'$. The model retrains. The positions of $A$ and $B$ shift because the embedding has rotated, rescaled, or reorganized the latent space to accommodate the new option. All individual pairwise rankings of $A$ versus $B$ remain unchanged. The social comparison of $A$ and $B$ changes. IIA fails, inside the embedding, invisibly. [A formal example is in the appendix.]
+
+**No dictatorship.** No single voter determines every outcome. But the metric can. The directive can. The training distribution can. The system is non-dictatorial over persons while being dictatorial over representations. An AI governance rule can satisfy Arrow's non-dictatorship condition in exactly the way that interests a computer scientist, while failing it in exactly the way that interests a political theorist. Whether that distinction matters depends on what you think dictatorship is for.^[Arrow's non-dictatorship condition is about preferences, not about people. The condition says no person's preference ordering always determines the social ranking. A directive that always dominates voter preferences satisfies the letter of non-dictatorship — no person is decisive — while violating its spirit entirely. The formal proposition is in the appendix.]
+
+**Strategy-proofness.** Gibbard-Satterthwaite tells us that if a social choice rule is non-dictatorial, defined over three or more alternatives, and consequential, it is manipulable. The manipulation moves when the object changes. On a ballot, you misrepresent your preference ranking. In an AI-governed system, you shape the training distribution. You submit public comments designed not to communicate your preferences but to move the model's learned geometry. You manufacture data. You fund the benchmark-setting institution. The game does not disappear. It moves to whoever controls what the system is trained on.
+
+## The topological fact underneath all of this
+
+There is a mathematical result that makes the inevitability precise.
+
+Arrow's theorem is sometimes described as showing that democracy is irrational. A cleaner description: Arrow's theorem is a statement about the topology of the space in which social choice happens.
+
+Preferences over $n$ alternatives can be represented geometrically. A preference ordering corresponds to a direction in preference space — a normalized gradient vector on the unit sphere $S^{n-1}$. A social choice rule is then a map from $k$ individual preference directions to one social preference direction:
+
+$$f : (S^{n-1})^k \to S^{n-1}$$
+
+Chichilnisky proved in 1982 that no such map can be continuous, anonymous, and Pareto-optimal simultaneously. The obstruction is topological. The unit circle $S^1$ has a nontrivial fundamental group: $\pi_1(S^1) = \mathbb{Z}$. Any loop on the circle has an integer winding number that cannot be continuously deformed away.
+
+For two voters and two goods, the Pareto condition forces the diagonal loop in $(S^1)^2$ to map to a loop of degree 1 in $S^1$. The anonymity condition forces the map to be symmetric in its arguments, which forces the induced map on fundamental groups to satisfy $\alpha = \beta$. Combining: $\alpha + \beta = 1$ and $\alpha = \beta$, so $2\alpha = 1$. No integer solution exists. The proof fails. The aggregation rule cannot exist.
+
+This is not an argument against particular voting systems. It is a fact about the geometry of the space where preferences live.
+
+Now notice what makes general equilibrium work. The Brouwer fixed-point theorem guarantees a competitive equilibrium exists because the price simplex $\Delta^{n-1}$ is compact and convex. Its fundamental group is trivial: $\pi_1(\Delta^{n-1}) = 0$. The simplex is contractible. Every loop on it can be continuously shrunk to a point. There is no winding obstruction.
+
+Markets work topologically because the commodity space is a simplex. Democracy fails topologically because preference space is a sphere. The AI escape attempt routes preferences through Euclidean space $\mathbb{R}^d$, which is also contractible. But the embedding $E : (S^{n-1})^k \to \mathbb{R}^d$ has to go somewhere. The topological obstruction does not disappear. It moves into the embedding. Whoever designed the embedding is where the winding number went.
+
+## Capitalism did this first
+
+Before attributing this problem to AI, notice how long it has been going on.
+
+Modern capitalism does not merely influence democratic decisions after preferences are formed. It participates in forming the preferences that democratic systems later treat as raw inputs. This is not a conspiracy claim. It is an observation about how markets, credit, labor, and media systems work as disciplinary institutions.
+
+A worker learns what can reasonably be expected from an employer. A renter learns what cannot be expected from a landlord. A debtor learns which risks are personal failures and which are systemic. A consumer learns to experience platform convenience as freedom even when the cost of that convenience is distributed to workers, to third parties, and to future people who have not yet been asked. These are not natural facts about human psychology. They are outcomes of specific market arrangements, and they look like preferences by the time the political system sees them.
+
+That is the preference-formation channel. It is real but contested empirically, and this paper does not rely on the strong version of the claim.
+
+The projection-control channel is more tractable and, in some ways, more important.
+
+The political system does not operate in full welfare space. It operates on a projection. Some dimensions of human welfare survive into the political arena: GDP growth rates, unemployment figures, crime statistics, partisan identities, tax rates, border numbers. Others do not arrive with anything like the same resolution: unpaid care labor, ecological depletion treated as a free disposal, chronic workplace domination that does not rise to the legal threshold of a grievance, neighborhood institutional decay that statistical systems do not measure, the welfare of people who do not yet exist and therefore cannot vote or lobby.
+
+This is not random. Organized capital can arrive at regulatory proceedings with lawyers, economic models, draft regulatory language, expert testimony, campaign contributions, and the credible threat of investment relocation. A neighborhood can arrive as complaint, petition, or turnout. A future generation cannot arrive at all. The difference is not only that one side has more resources. The difference is resolution. Some claims become crisp in the system. Others remain blurry. The political system then aggregates the visible projection and calls the result public preference.
+
+Formally: let full welfare live in $\mathbb{R}^K$, and let the political system observe only $\Pi W$, where $\Pi$ is a $k \times K$ projection matrix with $k \ll K$. If organized capital can influence $\Pi$, it can change collective choices without changing any voter's underlying welfare or revealed preferences. The mechanism for influencing $\Pi$ is institutional: control over which data gets collected, which metrics get published, which harms get measured, which comparisons get made. This is not hypothetical. Cost-benefit analysis in environmental regulation officially prices certain lives lower than others based on income, because that is what willingness-to-pay data shows. The discount rate applied to future climate damages is a political choice dressed as a technical parameter. Credit scores determine housing access through models trained on data that embeds historical discrimination. Each of these is a choice about $\Pi$: which welfare dimensions get represented, at what resolution, in which direction.
+
+The Facebook transition from measuring content "prevalence" (total volume of violating content) to "violative view rate" (how many people actually saw it) is a cleaner example of the mechanism. VVR went down as the platform grew. It was a metric that made the problem look smaller as the platform made the problem larger. This was not a random choice of measurement. It was a choice that aligned with the platform's interest in showing advertisers and regulators a downward trend. The choice of $\Pi$ is never made by someone with no stake in what $\Pi W$ will show.
+
+AI does not introduce this problem. It inherits it with improved efficiency and lower visibility.
+
+## Representative democracy as projection
+
+There is a companion compression that operates inside formally democratic institutions.
+
+Legislative processes translate complex preference distributions into binary or categorical outcomes. Party systems bundle together positions on immigration, taxation, healthcare, and foreign policy that voters might prefer to combine differently. Primary systems filter candidates through a high-turnout subset of the electorate with systematically different preferences from the general population. Media frames determine which policy dimensions get covered as the salient tradeoff. Budget scoring rules determine which costs count as costs and over which time horizon.
+
+Each of these is a projection. Each drops dimensions.
+
+A democracy can be procedurally representative in the projected space, meaning candidates compete for majorities, votes are counted honestly, incumbents lose when they perform badly, while substantively misrepresenting people in the larger welfare space. The two claims are compatible. The first is a claim about mechanism. The second is a claim about what the mechanism was designed to carry and what it drops.
+
+This is where McKelvey's result becomes relevant outside of academic social choice. In a multidimensional policy space with no single-peaked preferences, majority rule has no stable equilibrium. The win set of any alternative, the set of alternatives that beat it by majority vote, is non-empty for almost every status quo. The result is not that democracy produces bad outcomes. The result is that agenda control, the power to determine what gets voted on in what order, does the work that stable preferences would otherwise do. Whoever controls the agenda controls the outcome, and this is not a pathological exception in high-dimensional political space. It is the generic case.
+
+Party systems and legislative rules exist partly to manage this instability. They work by restricting what gets voted on, which is another name for restricting the effective preference domain, which is another name for the domain restrictions Arrow's theorem uses to escape its own impossibility. The restriction does not make the impossibility go away. It assigns authority over the restriction to whoever controls the agenda.
+
+## Latent directives and hidden sovereignty
+
+A latent directive is a rule of political priority embedded inside a technical system without being named as law, policy, or judgment.
+
+Consider Michigan's MiDAS system, which the state used between 2013 and 2015 to flag unemployment insurance fraud. The system had a "sensitivity" parameter — a technical threshold for how aggressively it would accuse claimants. The threshold was set in a way that produced a 93% false positive rate. Forty thousand Michiganders were accused of fraud, required to repay benefits they had received legally, assessed penalties, and in some cases prosecuted. The question of how aggressively to pursue suspected fraud is a political question. It implicates the state's theory of who deserves the benefit of the doubt. It was answered, in Michigan, through a technical parameter in a procurement document.
+
+Or consider the Social Cost of Carbon, the number EPA uses to convert future climate damages into present-dollar terms for regulatory cost-benefit analysis. The discount rate applied to those future damages is a technical parameter in the range of 2% to 7%. At 7%, a hundred dollars of damage to someone alive in 2100 is worth about $3 today. At 2%, it is worth about $14. The choice of discount rate is a position on intergenerational equity — on whether the welfare of people not yet born counts nearly as much as the welfare of current voters, or much less. This is not a technical question with a technical answer. It has been answered, repeatedly, through regulatory rulemaking processes in which the number appears as a methodological assumption.
+
+Or consider COMPAS, the risk assessment tool used in criminal sentencing in multiple states. The tool has to choose a fairness criterion. "Predictive parity" means the score is equally accurate for Black and white defendants. "Equalized odds" means the false positive rate — incorrectly flagging someone as high-risk — is equal across racial groups. These two criteria are mathematically incompatible when base rates differ across groups, which they do, because they reflect different histories. Choosing between them is a decision about individual versus group fairness. It is a choice with large consequences for who gets detained and who gets released. It was made by the vendor.
+
+Once deployed, each of these answers political questions operationally. Whose claim is urgent. Whose loss is tolerable. Which error matters. Which people are legible to the system. Which harm counts as noise.
+
+Accuracy does not resolve this. A system can be accurate relative to an objective that no one had authority to choose. It can be calibrated and still illegitimate. It can reduce aggregate error while concentrating injury on the people who most need public reasons and have the least capacity to challenge technical outputs.
+
+The formal structure is precisely Arrow's dictatorship condition applied one level up. In Arrow's framework, the question is whether any single person always determines the social ranking. In an AI-governed system, the question is whether any single parameter — the directive $\delta$, the multiplier $\lambda$, the embedding $E$, the benchmark against which performance is measured — always determines the outcome. The parameter can dominate all voter preferences without any single person being decisive. The non-dictatorship condition is satisfied over persons and violated over representations.
+
+The difference between this and ordinary bureaucratic discretion is adaptivity and opacity. A bureaucrat making a discretionary call is accountable to legal review, to supervisors, to a paper trail, to the person standing in front of them. An AI system making the same call at scale operates through a document — a model card, a technical specification, a vendor contract — that may not be public, may not be comprehensible to the people it governs, and almost certainly was not legislatively authorized in any meaningful sense of that phrase.
+
+**The metric is not the law. But it is answering the questions that law is supposed to answer.**
+
+## Constitutional constraints are not prices
+
+One clarification matters enough to state plainly.
+
+Constitutional constraints are not high-weighted preferences. Due process is not a cost term to tune until the fairness dashboard looks acceptable. Equal protection is not a fairness parameter. The difference is not subtle.
+
+A preference can, in principle, be traded against other preferences. If you give me enough of what I want, I can in principle agree to less of what I want somewhere else. This is the logic of preference-based welfare economics, and it works reasonably well within its domain.
+
+A constitutional constraint marks certain reasons as unavailable and certain tradeoffs as forbidden regardless of the distribution of preferences. It is not that the welfare cost of violating due process is very high. It is that the comparison is not a welfare comparison. It is that the optimization stops at the boundary, not because crossing the boundary is expensive but because crossing the boundary is not what this kind of institution does.
+
+When an AI governance system represents a constitutional right as a term in the loss function, $\lambda \cdot R(a, \delta)$ where $\delta$ is the rights constraint and $\lambda$ is tunable, the constraint has been demoted. It is now a price. The question of how large $\lambda$ should be is now open. Whoever sets $\lambda$ has authority over the right. That authority requires the same legislative legitimacy as the right itself, and in practice it will have less.
+
+> The difference between a constraint and a cost is the difference between constitutional government and administrative optimization.
+
+This is not an argument against AI in governance. It is a specification of what a non-dictatorial AI role looks like.
+
+## What AI can do without becoming sovereign
+
+The constructive claim is not weak.
+
+An AI system that refuses to announce the social will can still do substantial things. It can map the actual distribution of preferences across the policy space with more resolution than any poll. It can show which groups are far from each policy option and by how much. It can estimate how sensitive outcomes are to changes in the weights or metric. It can flag when a result depends entirely on a parameter choice that has not been democratically authorized. It can preserve minority rationales in a format that survives aggregation, rather than averaging them away.
+
+It can test whether a proposed policy violates stated constitutional constraints. It can simulate outcomes under different welfare functions and make those simulations public. It can identify when the choice of metric is load-bearing, that is, when a different reasonable metric would produce a different outcome, and force officials to name which value they are privileging.
+
+None of this requires the system to choose. It requires the system to show its work.
+
+The best AI governance application is not the one that identifies the social will. It is the one that makes it harder to pretend the social will was ever a single hidden object, waiting to be discovered by a sufficiently sophisticated algorithm. Arrow already proved it was not. The question is whether the technical system acknowledges that, or builds another layer of compression on top.
+
+Metric sovereignty is exercised when the geometry of political representation is controlled without authorization, visibility, or accountability. The response is not to find a neutral metric. There is no neutral metric. The response is to make the geometry public, make the choices legible, and maintain the institutions capable of contesting them.
+
+That is a different kind of ambition than the one that got us here. It is more honest about what Arrow proved.
+
+---
+
+## Claims and status
+
+::: {.claim-box}
+**Claim 1: Metric sovereignty.** The power to define the geometry in which public claims are represented, compared, aggregated, and acted upon.
+
+*Status: Core concept. Needs formal definition as a property of composite mechanism $M = G \circ E$.*
+:::
+
+::: {.claim-box}
+**Claim 2: Axiom relocation.** AI-assisted governance does not escape social choice impossibility. It relocates the violated axiom into representation, metric choice, directive selection, or data governance.
+
+*Status: Core mathematical frame. Formal proposition in appendix.*
+:::
+
+::: {.claim-box}
+**Claim 3: Capitalism as projection control.** Modern capitalism shapes democratic outcomes by controlling which dimensions of welfare survive political projection.
+
+*Status: Projection-control channel is formalizable. Preference-formation channel requires empirical care. Gilens-Page (2014) is supportive but contested; cite with qualification.*
+:::
+
+::: {.claim-box}
+**Claim 4: Non-dictatorship over persons is insufficient.** A system can satisfy Arrow's non-dictatorship condition over voters while imposing directive dictatorship.
+
+*Status: Provable. Formal example in appendix.*
+:::
+
+::: {.claim-box}
+**Claim 5: Rights are constraints, not prices.** Representing a constitutional right as a loss function term demotes it from constraint to preference.
+
+*Status: Philosophically defensible. Needs legal theory grounding. Dworkin's "rights as trumps" is the closest theoretical anchor.*
+:::
+
+::: {.claim-box}
+**Claim 6: Strategy-proofness migrates to data governance.** Gibbard-Satterthwaite guarantees manipulation opportunities; in AI governance, the manipulable object is the training distribution.
+
+*Status: Strong mechanism claim. Needs formal model and examples.*
+:::
+
+---
+
+*This document is a living draft. Sections will be revised as formal results develop. Comments welcome at ianthelfrich@gmail.com.*
+
+*Last updated: May 2026.*

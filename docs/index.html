@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ian T. Helfrich">
+<meta name="dcterms.date" content="2026-05-01">
+
+<title>Metric Sovereignty</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8afbf581e389c7e3dfb7385725caaf67.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Metric Sovereignty</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Paper</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./appendix/proofs.html"> 
+<span class="menu-text">Proofs</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ihelfrich/metric-sovereignty"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sections</h2>
+   
+  <ul class="collapse">
+  <li><a href="#three-voters-one-circle" id="toc-three-voters-one-circle" class="nav-link active" data-scroll-target="#three-voters-one-circle">Three voters, one circle</a></li>
+  <li><a href="#the-tempting-escape" id="toc-the-tempting-escape" class="nav-link" data-scroll-target="#the-tempting-escape">The tempting escape</a></li>
+  <li><a href="#the-formal-object" id="toc-the-formal-object" class="nav-link" data-scroll-target="#the-formal-object">The formal object</a></li>
+  <li><a href="#axiom-relocation" id="toc-axiom-relocation" class="nav-link" data-scroll-target="#axiom-relocation">Axiom relocation</a></li>
+  <li><a href="#the-topological-fact-underneath-all-of-this" id="toc-the-topological-fact-underneath-all-of-this" class="nav-link" data-scroll-target="#the-topological-fact-underneath-all-of-this">The topological fact underneath all of this</a></li>
+  <li><a href="#capitalism-did-this-first" id="toc-capitalism-did-this-first" class="nav-link" data-scroll-target="#capitalism-did-this-first">Capitalism did this first</a></li>
+  <li><a href="#representative-democracy-as-projection" id="toc-representative-democracy-as-projection" class="nav-link" data-scroll-target="#representative-democracy-as-projection">Representative democracy as projection</a></li>
+  <li><a href="#latent-directives-and-hidden-sovereignty" id="toc-latent-directives-and-hidden-sovereignty" class="nav-link" data-scroll-target="#latent-directives-and-hidden-sovereignty">Latent directives and hidden sovereignty</a></li>
+  <li><a href="#constitutional-constraints-are-not-prices" id="toc-constitutional-constraints-are-not-prices" class="nav-link" data-scroll-target="#constitutional-constraints-are-not-prices">Constitutional constraints are not prices</a></li>
+  <li><a href="#what-ai-can-do-without-becoming-sovereign" id="toc-what-ai-can-do-without-becoming-sovereign" class="nav-link" data-scroll-target="#what-ai-can-do-without-becoming-sovereign">What AI can do without becoming sovereign</a></li>
+  <li><a href="#claims-and-status" id="toc-claims-and-status" class="nav-link" data-scroll-target="#claims-and-status">Claims and status</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/ihelfrich/metric-sovereignty/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ihelfrich/metric-sovereignty/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Metric Sovereignty</h1>
+<p class="subtitle lead">Social choice, AI directives, and capitalist democracy</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ian T. Helfrich </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="status-badge">
+<p>Living Draft</p>
+</div>
+<div class="abstract">
+<p><strong>Abstract.</strong> Arrow’s theorem says no rule can convert unrestricted individual rankings over three or more alternatives into a coherent collective ranking while satisfying four individually reasonable conditions. AI-assisted governance does not repeal this. It changes where the impossibility lands. A learned political geometry can embed voters and policies in a latent space, then select the alternative that minimizes some weighted distance or loss. That can reveal structure that ballots flatten. But the metric is not innocent. The choice of dimensions, weights, loss function, training data, and directive becomes a site of political authority. In capitalist representative democracies, concentrated economic power already acts through this channel by shaping which preferences become legible, which harms remain far, and which dimensions of welfare survive political compression. The term for this is metric sovereignty. AI can expose that geometry or hide it more efficiently. Which one it does depends on choices that Arrow’s theorem tells us cannot be made without someone making them.</p>
+</div>
+<hr>
+<section id="three-voters-one-circle" class="level2">
+<h2 class="anchored" data-anchor-id="three-voters-one-circle">Three voters, one circle</h2>
+<p>Three voters can make a circle.</p>
+<p>One ranks A above B, and B above C. Another ranks B above C, and C above A. A third ranks C above A, and A above B. Nobody is confused. The preferences are coherent. The people are rational, fully informed, and not being obstinate.</p>
+<p>Put them together and the majority says A beats B. Also that B beats C. Also that C beats A.</p>
+<p>This is Condorcet’s paradox, named for an 18th-century French mathematician who noticed it while trying to design a better electoral system for a country that was, at the time, very busy executing its aristocracy. The timing was bad. The insight was not.</p>
+<p>Arrow made the wound precise in 1951. A society cannot take unrestricted individual preference rankings over three or more alternatives and produce a coherent collective ranking while satisfying four conditions that seem, individually, like the minimum requirements of decency:</p>
+<ol type="1">
+<li>If everyone prefers A to B, so does the social ranking.</li>
+<li>The social comparison of A and B depends only on how individuals compare A and B, not on their opinions about some third alternative C.</li>
+<li>No single person’s preferences always determine the social ranking.</li>
+<li>The social ranking is transitive.</li>
+</ol>
+<p>None of these is outrageous. Together they are impossible.</p>
+<p>The usual lesson is about voting systems: majority rule cycles, Borda count violates condition 2, approval voting has its own problems, everything has its own problems, and we muddle through. That lesson is accurate and too small.</p>
+<p>Arrow’s theorem is not primarily about which ballot design to adopt. It is about whether a coherent collective will exists to be expressed at all. The impossibility is not a gap between the ideal and the achievable. It is a gap inside the ideal itself. Any rule that takes individual preferences seriously as inputs and tries to produce something coherent as output must either restrict what preferences are allowed, violate one of those four conditions, or concentrate authority in one actor or one technical parameter. There is no fourth option.</p>
+<p>This matters enormously right now, because a certain kind of AI governance proposal claims to have found the fourth option.</p>
+</section>
+<section id="the-tempting-escape" class="level2">
+<h2 class="anchored" data-anchor-id="the-tempting-escape">The tempting escape</h2>
+<p>The appeal is real. Start with it seriously.</p>
+<p>Representative democracy as currently practiced is, among other things, a compression algorithm. It takes the full, high-dimensional welfare space of a polity and squeezes it into a party platform, a slate of candidates, a ballot measure, a committee vote. Most of that compression happens before anyone casts a vote, in primary systems and fundraising markets and media frames and polling categories that decide which differences survive into the political arena and which do not.</p>
+<p>The AI-geometric alternative starts from a different premise: what if we could represent the actual distribution of preferences, without forcing them through a party-primary bottleneck? Give voters a richer input. Learn where they sit in policy space. Represent candidates and policies as points in the same space. Choose the alternative that minimizes some well-specified distance from the electorate.</p>
+<p>This has a long academic history in the spatial theory of voting. The median voter theorem, in one dimension with single-peaked preferences, says the median voter’s ideal point beats anything else by majority rule. Extend to multiple dimensions, find the center of the distribution, let the geometry do what political parties cannot.</p>
+<p>An AI system trained on rich behavioral data might estimate that geometry better than any poll, primary, or focus group. It might surface latent cleavages that party systems suppress. It might represent what people actually want rather than what two parties have decided to offer them.</p>
+<p>The appeal is not naive. It is the right question asked with the wrong confidence about where the answer lives.</p>
+</section>
+<section id="the-formal-object" class="level2">
+<h2 class="anchored" data-anchor-id="the-formal-object">The formal object</h2>
+<p>Here is what the decision rule actually contains.</p>
+<p>Voters are <span class="math inline">\(N = \{1, \ldots, n\}\)</span>. Alternatives are <span class="math inline">\(X = \{A, B, C, \ldots\}\)</span>. In classical social choice, each person has a preference ordering <span class="math inline">\(\succ_i\)</span> over alternatives, and the social welfare function <span class="math inline">\(F\)</span> maps all those orderings to a single collective ordering:</p>
+<p><span class="math display">\[F : \mathcal{P}(X)^n \to \mathcal{R}(X)\]</span></p>
+<p>Read it plainly: everyone’s rankings go in, one ranking comes out. Arrow says this cannot satisfy conditions 1 through 4 simultaneously.</p>
+<p>Now change the input. Suppose each person has a latent location:</p>
+<p><span class="math display">\[z_i \in \mathcal{M}\]</span></p>
+<p>Each alternative also has a location:</p>
+<p><span class="math display">\[y_a \in \mathcal{M}\]</span></p>
+<p>where <span class="math inline">\(\mathcal{M}\)</span> is some learned political or welfare space. Individual utility looks like:</p>
+<p><span class="math display">\[u_i(a) = -d(z_i, y_a)^2 + \varepsilon_{ia}\]</span></p>
+<p>Person <span class="math inline">\(i\)</span> likes alternative <span class="math inline">\(a\)</span> more when <span class="math inline">\(a\)</span> is close to them in the latent space, plus some noise. A metric social choice rule then selects:</p>
+<p><span class="math display">\[a^* \in \arg\min_{a} \sum_i w_i \, d(z_i, y_a)^p\]</span></p>
+<p>Choose the alternative that minimizes the weighted distance from the public. Then add a directive <span class="math inline">\(\delta\)</span> — a constitutional constraint, a welfare criterion, a planning objective, a learned policy principle. Let <span class="math inline">\(R(a, \delta)\)</span> measure how badly alternative <span class="math inline">\(a\)</span> violates the directive. The full rule becomes:</p>
+<p><span class="math display">\[a^* \in \arg\min_{a} \Bigl[ \sum_i w_i \, d(z_i, y_a)^p + \lambda \, R(a, \delta) \Bigr]\]</span></p>
+<p>Read the bracketed expression in plain English:</p>
+<p><em>Choose the alternative closest to the electorate, after deciding whose distance counts, how distance is measured, how much large alienation hurts, what the directive demands, and how strongly the directive can override voter proximity.</em></p>
+<p>Every parameter in that sentence is a political choice. The weights <span class="math inline">\(w_i\)</span>. The exponent <span class="math inline">\(p\)</span>. The space <span class="math inline">\(\mathcal{M}\)</span> and its metric <span class="math inline">\(d\)</span>. The directive <span class="math inline">\(\delta\)</span>. The multiplier <span class="math inline">\(\lambda\)</span> that determines how far the directive can override everyone’s preferences. None of these are neutral technical settings. They are answers to political questions, given in the language of optimization rather than legislation.</p>
+<p>The question is not whether this rule is bad. The question is whether it is neutral. It is not.</p>
+</section>
+<section id="axiom-relocation" class="level2">
+<h2 class="anchored" data-anchor-id="axiom-relocation">Axiom relocation</h2>
+<p>The phrase that does most of the work in this paper is <strong>axiom relocation</strong>. AI-assisted social choice can appear to escape Arrow because the object has changed. The system no longer aggregates bare ordinal rankings into a social ranking. It learns a representation, restricts the domain, defines a metric, and optimizes a loss. Arrow seems not to apply.</p>
+<p>Arrow still applies. The impossibility has moved.</p>
+<p><strong>Unrestricted domain.</strong> A latent geometry assumes preferences have structure. They are smooth, low-dimensional, recoverable from observed behavior, stable enough to fit a model. That is a domain restriction. It excludes the kind of idiosyncratic, high-dimensional, non-Euclidean preference structure that real political disagreement often has. The restriction is not wrong to make. It is a political assumption that some preferences are legible to the model and others are not. Whose preferences are legible is a political question.</p>
+<p><strong>Pareto.</strong> Regularization can override unanimity. If everyone in the training data weakly prefers one alternative, but the model treats that pattern as overfitting risk, or as a majority preference that conflicts with the directive <span class="math inline">\(\delta\)</span>, the system can move away from unanimous preference. Pareto can fail at the regularization stage without anyone noticing, because the output still looks like an optimization result rather than an override.</p>
+<p><strong>Independence of irrelevant alternatives.</strong> This is where the formal violation is clearest. Suppose the system learns an embedding <span class="math inline">\(E\)</span> that maps the full alternative set <span class="math inline">\(X\)</span> into <span class="math inline">\(\mathcal{M}\)</span> jointly. The position of alternative <span class="math inline">\(A\)</span> in the latent space is determined partly by its relationship to <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, and every other option in the training set. Now add a new alternative <span class="math inline">\(C'\)</span>. The model retrains. The positions of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> shift because the embedding has rotated, rescaled, or reorganized the latent space to accommodate the new option. All individual pairwise rankings of <span class="math inline">\(A\)</span> versus <span class="math inline">\(B\)</span> remain unchanged. The social comparison of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> changes. IIA fails, inside the embedding, invisibly. [A formal example is in the appendix.]</p>
+<p><strong>No dictatorship.</strong> No single voter determines every outcome. But the metric can. The directive can. The training distribution can. The system is non-dictatorial over persons while being dictatorial over representations. An AI governance rule can satisfy Arrow’s non-dictatorship condition in exactly the way that interests a computer scientist, while failing it in exactly the way that interests a political theorist. Whether that distinction matters depends on what you think dictatorship is for.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><strong>Strategy-proofness.</strong> Gibbard-Satterthwaite tells us that if a social choice rule is non-dictatorial, defined over three or more alternatives, and consequential, it is manipulable. The manipulation moves when the object changes. On a ballot, you misrepresent your preference ranking. In an AI-governed system, you shape the training distribution. You submit public comments designed not to communicate your preferences but to move the model’s learned geometry. You manufacture data. You fund the benchmark-setting institution. The game does not disappear. It moves to whoever controls what the system is trained on.</p>
+</section>
+<section id="the-topological-fact-underneath-all-of-this" class="level2">
+<h2 class="anchored" data-anchor-id="the-topological-fact-underneath-all-of-this">The topological fact underneath all of this</h2>
+<p>There is a mathematical result that makes the inevitability precise.</p>
+<p>Arrow’s theorem is sometimes described as showing that democracy is irrational. A cleaner description: Arrow’s theorem is a statement about the topology of the space in which social choice happens.</p>
+<p>Preferences over <span class="math inline">\(n\)</span> alternatives can be represented geometrically. A preference ordering corresponds to a direction in preference space — a normalized gradient vector on the unit sphere <span class="math inline">\(S^{n-1}\)</span>. A social choice rule is then a map from <span class="math inline">\(k\)</span> individual preference directions to one social preference direction:</p>
+<p><span class="math display">\[f : (S^{n-1})^k \to S^{n-1}\]</span></p>
+<p>Chichilnisky proved in 1982 that no such map can be continuous, anonymous, and Pareto-optimal simultaneously. The obstruction is topological. The unit circle <span class="math inline">\(S^1\)</span> has a nontrivial fundamental group: <span class="math inline">\(\pi_1(S^1) = \mathbb{Z}\)</span>. Any loop on the circle has an integer winding number that cannot be continuously deformed away.</p>
+<p>For two voters and two goods, the Pareto condition forces the diagonal loop in <span class="math inline">\((S^1)^2\)</span> to map to a loop of degree 1 in <span class="math inline">\(S^1\)</span>. The anonymity condition forces the map to be symmetric in its arguments, which forces the induced map on fundamental groups to satisfy <span class="math inline">\(\alpha = \beta\)</span>. Combining: <span class="math inline">\(\alpha + \beta = 1\)</span> and <span class="math inline">\(\alpha = \beta\)</span>, so <span class="math inline">\(2\alpha = 1\)</span>. No integer solution exists. The proof fails. The aggregation rule cannot exist.</p>
+<p>This is not an argument against particular voting systems. It is a fact about the geometry of the space where preferences live.</p>
+<p>Now notice what makes general equilibrium work. The Brouwer fixed-point theorem guarantees a competitive equilibrium exists because the price simplex <span class="math inline">\(\Delta^{n-1}\)</span> is compact and convex. Its fundamental group is trivial: <span class="math inline">\(\pi_1(\Delta^{n-1}) = 0\)</span>. The simplex is contractible. Every loop on it can be continuously shrunk to a point. There is no winding obstruction.</p>
+<p>Markets work topologically because the commodity space is a simplex. Democracy fails topologically because preference space is a sphere. The AI escape attempt routes preferences through Euclidean space <span class="math inline">\(\mathbb{R}^d\)</span>, which is also contractible. But the embedding <span class="math inline">\(E : (S^{n-1})^k \to \mathbb{R}^d\)</span> has to go somewhere. The topological obstruction does not disappear. It moves into the embedding. Whoever designed the embedding is where the winding number went.</p>
+</section>
+<section id="capitalism-did-this-first" class="level2">
+<h2 class="anchored" data-anchor-id="capitalism-did-this-first">Capitalism did this first</h2>
+<p>Before attributing this problem to AI, notice how long it has been going on.</p>
+<p>Modern capitalism does not merely influence democratic decisions after preferences are formed. It participates in forming the preferences that democratic systems later treat as raw inputs. This is not a conspiracy claim. It is an observation about how markets, credit, labor, and media systems work as disciplinary institutions.</p>
+<p>A worker learns what can reasonably be expected from an employer. A renter learns what cannot be expected from a landlord. A debtor learns which risks are personal failures and which are systemic. A consumer learns to experience platform convenience as freedom even when the cost of that convenience is distributed to workers, to third parties, and to future people who have not yet been asked. These are not natural facts about human psychology. They are outcomes of specific market arrangements, and they look like preferences by the time the political system sees them.</p>
+<p>That is the preference-formation channel. It is real but contested empirically, and this paper does not rely on the strong version of the claim.</p>
+<p>The projection-control channel is more tractable and, in some ways, more important.</p>
+<p>The political system does not operate in full welfare space. It operates on a projection. Some dimensions of human welfare survive into the political arena: GDP growth rates, unemployment figures, crime statistics, partisan identities, tax rates, border numbers. Others do not arrive with anything like the same resolution: unpaid care labor, ecological depletion treated as a free disposal, chronic workplace domination that does not rise to the legal threshold of a grievance, neighborhood institutional decay that statistical systems do not measure, the welfare of people who do not yet exist and therefore cannot vote or lobby.</p>
+<p>This is not random. Organized capital can arrive at regulatory proceedings with lawyers, economic models, draft regulatory language, expert testimony, campaign contributions, and the credible threat of investment relocation. A neighborhood can arrive as complaint, petition, or turnout. A future generation cannot arrive at all. The difference is not only that one side has more resources. The difference is resolution. Some claims become crisp in the system. Others remain blurry. The political system then aggregates the visible projection and calls the result public preference.</p>
+<p>Formally: let full welfare live in <span class="math inline">\(\mathbb{R}^K\)</span>, and let the political system observe only <span class="math inline">\(\Pi W\)</span>, where <span class="math inline">\(\Pi\)</span> is a <span class="math inline">\(k \times K\)</span> projection matrix with <span class="math inline">\(k \ll K\)</span>. If organized capital can influence <span class="math inline">\(\Pi\)</span>, it can change collective choices without changing any voter’s underlying welfare or revealed preferences. The mechanism for influencing <span class="math inline">\(\Pi\)</span> is institutional: control over which data gets collected, which metrics get published, which harms get measured, which comparisons get made. This is not hypothetical. Cost-benefit analysis in environmental regulation officially prices certain lives lower than others based on income, because that is what willingness-to-pay data shows. The discount rate applied to future climate damages is a political choice dressed as a technical parameter. Credit scores determine housing access through models trained on data that embeds historical discrimination. Each of these is a choice about <span class="math inline">\(\Pi\)</span>: which welfare dimensions get represented, at what resolution, in which direction.</p>
+<p>The Facebook transition from measuring content “prevalence” (total volume of violating content) to “violative view rate” (how many people actually saw it) is a cleaner example of the mechanism. VVR went down as the platform grew. It was a metric that made the problem look smaller as the platform made the problem larger. This was not a random choice of measurement. It was a choice that aligned with the platform’s interest in showing advertisers and regulators a downward trend. The choice of <span class="math inline">\(\Pi\)</span> is never made by someone with no stake in what <span class="math inline">\(\Pi W\)</span> will show.</p>
+<p>AI does not introduce this problem. It inherits it with improved efficiency and lower visibility.</p>
+</section>
+<section id="representative-democracy-as-projection" class="level2">
+<h2 class="anchored" data-anchor-id="representative-democracy-as-projection">Representative democracy as projection</h2>
+<p>There is a companion compression that operates inside formally democratic institutions.</p>
+<p>Legislative processes translate complex preference distributions into binary or categorical outcomes. Party systems bundle together positions on immigration, taxation, healthcare, and foreign policy that voters might prefer to combine differently. Primary systems filter candidates through a high-turnout subset of the electorate with systematically different preferences from the general population. Media frames determine which policy dimensions get covered as the salient tradeoff. Budget scoring rules determine which costs count as costs and over which time horizon.</p>
+<p>Each of these is a projection. Each drops dimensions.</p>
+<p>A democracy can be procedurally representative in the projected space, meaning candidates compete for majorities, votes are counted honestly, incumbents lose when they perform badly, while substantively misrepresenting people in the larger welfare space. The two claims are compatible. The first is a claim about mechanism. The second is a claim about what the mechanism was designed to carry and what it drops.</p>
+<p>This is where McKelvey’s result becomes relevant outside of academic social choice. In a multidimensional policy space with no single-peaked preferences, majority rule has no stable equilibrium. The win set of any alternative, the set of alternatives that beat it by majority vote, is non-empty for almost every status quo. The result is not that democracy produces bad outcomes. The result is that agenda control, the power to determine what gets voted on in what order, does the work that stable preferences would otherwise do. Whoever controls the agenda controls the outcome, and this is not a pathological exception in high-dimensional political space. It is the generic case.</p>
+<p>Party systems and legislative rules exist partly to manage this instability. They work by restricting what gets voted on, which is another name for restricting the effective preference domain, which is another name for the domain restrictions Arrow’s theorem uses to escape its own impossibility. The restriction does not make the impossibility go away. It assigns authority over the restriction to whoever controls the agenda.</p>
+</section>
+<section id="latent-directives-and-hidden-sovereignty" class="level2">
+<h2 class="anchored" data-anchor-id="latent-directives-and-hidden-sovereignty">Latent directives and hidden sovereignty</h2>
+<p>A latent directive is a rule of political priority embedded inside a technical system without being named as law, policy, or judgment.</p>
+<p>Consider Michigan’s MiDAS system, which the state used between 2013 and 2015 to flag unemployment insurance fraud. The system had a “sensitivity” parameter — a technical threshold for how aggressively it would accuse claimants. The threshold was set in a way that produced a 93% false positive rate. Forty thousand Michiganders were accused of fraud, required to repay benefits they had received legally, assessed penalties, and in some cases prosecuted. The question of how aggressively to pursue suspected fraud is a political question. It implicates the state’s theory of who deserves the benefit of the doubt. It was answered, in Michigan, through a technical parameter in a procurement document.</p>
+<p>Or consider the Social Cost of Carbon, the number EPA uses to convert future climate damages into present-dollar terms for regulatory cost-benefit analysis. The discount rate applied to those future damages is a technical parameter in the range of 2% to 7%. At 7%, a hundred dollars of damage to someone alive in 2100 is worth about $3 today. At 2%, it is worth about $14. The choice of discount rate is a position on intergenerational equity — on whether the welfare of people not yet born counts nearly as much as the welfare of current voters, or much less. This is not a technical question with a technical answer. It has been answered, repeatedly, through regulatory rulemaking processes in which the number appears as a methodological assumption.</p>
+<p>Or consider COMPAS, the risk assessment tool used in criminal sentencing in multiple states. The tool has to choose a fairness criterion. “Predictive parity” means the score is equally accurate for Black and white defendants. “Equalized odds” means the false positive rate — incorrectly flagging someone as high-risk — is equal across racial groups. These two criteria are mathematically incompatible when base rates differ across groups, which they do, because they reflect different histories. Choosing between them is a decision about individual versus group fairness. It is a choice with large consequences for who gets detained and who gets released. It was made by the vendor.</p>
+<p>Once deployed, each of these answers political questions operationally. Whose claim is urgent. Whose loss is tolerable. Which error matters. Which people are legible to the system. Which harm counts as noise.</p>
+<p>Accuracy does not resolve this. A system can be accurate relative to an objective that no one had authority to choose. It can be calibrated and still illegitimate. It can reduce aggregate error while concentrating injury on the people who most need public reasons and have the least capacity to challenge technical outputs.</p>
+<p>The formal structure is precisely Arrow’s dictatorship condition applied one level up. In Arrow’s framework, the question is whether any single person always determines the social ranking. In an AI-governed system, the question is whether any single parameter — the directive <span class="math inline">\(\delta\)</span>, the multiplier <span class="math inline">\(\lambda\)</span>, the embedding <span class="math inline">\(E\)</span>, the benchmark against which performance is measured — always determines the outcome. The parameter can dominate all voter preferences without any single person being decisive. The non-dictatorship condition is satisfied over persons and violated over representations.</p>
+<p>The difference between this and ordinary bureaucratic discretion is adaptivity and opacity. A bureaucrat making a discretionary call is accountable to legal review, to supervisors, to a paper trail, to the person standing in front of them. An AI system making the same call at scale operates through a document — a model card, a technical specification, a vendor contract — that may not be public, may not be comprehensible to the people it governs, and almost certainly was not legislatively authorized in any meaningful sense of that phrase.</p>
+<p><strong>The metric is not the law. But it is answering the questions that law is supposed to answer.</strong></p>
+</section>
+<section id="constitutional-constraints-are-not-prices" class="level2">
+<h2 class="anchored" data-anchor-id="constitutional-constraints-are-not-prices">Constitutional constraints are not prices</h2>
+<p>One clarification matters enough to state plainly.</p>
+<p>Constitutional constraints are not high-weighted preferences. Due process is not a cost term to tune until the fairness dashboard looks acceptable. Equal protection is not a fairness parameter. The difference is not subtle.</p>
+<p>A preference can, in principle, be traded against other preferences. If you give me enough of what I want, I can in principle agree to less of what I want somewhere else. This is the logic of preference-based welfare economics, and it works reasonably well within its domain.</p>
+<p>A constitutional constraint marks certain reasons as unavailable and certain tradeoffs as forbidden regardless of the distribution of preferences. It is not that the welfare cost of violating due process is very high. It is that the comparison is not a welfare comparison. It is that the optimization stops at the boundary, not because crossing the boundary is expensive but because crossing the boundary is not what this kind of institution does.</p>
+<p>When an AI governance system represents a constitutional right as a term in the loss function, <span class="math inline">\(\lambda \cdot R(a, \delta)\)</span> where <span class="math inline">\(\delta\)</span> is the rights constraint and <span class="math inline">\(\lambda\)</span> is tunable, the constraint has been demoted. It is now a price. The question of how large <span class="math inline">\(\lambda\)</span> should be is now open. Whoever sets <span class="math inline">\(\lambda\)</span> has authority over the right. That authority requires the same legislative legitimacy as the right itself, and in practice it will have less.</p>
+<blockquote class="blockquote">
+<p>The difference between a constraint and a cost is the difference between constitutional government and administrative optimization.</p>
+</blockquote>
+<p>This is not an argument against AI in governance. It is a specification of what a non-dictatorial AI role looks like.</p>
+</section>
+<section id="what-ai-can-do-without-becoming-sovereign" class="level2">
+<h2 class="anchored" data-anchor-id="what-ai-can-do-without-becoming-sovereign">What AI can do without becoming sovereign</h2>
+<p>The constructive claim is not weak.</p>
+<p>An AI system that refuses to announce the social will can still do substantial things. It can map the actual distribution of preferences across the policy space with more resolution than any poll. It can show which groups are far from each policy option and by how much. It can estimate how sensitive outcomes are to changes in the weights or metric. It can flag when a result depends entirely on a parameter choice that has not been democratically authorized. It can preserve minority rationales in a format that survives aggregation, rather than averaging them away.</p>
+<p>It can test whether a proposed policy violates stated constitutional constraints. It can simulate outcomes under different welfare functions and make those simulations public. It can identify when the choice of metric is load-bearing, that is, when a different reasonable metric would produce a different outcome, and force officials to name which value they are privileging.</p>
+<p>None of this requires the system to choose. It requires the system to show its work.</p>
+<p>The best AI governance application is not the one that identifies the social will. It is the one that makes it harder to pretend the social will was ever a single hidden object, waiting to be discovered by a sufficiently sophisticated algorithm. Arrow already proved it was not. The question is whether the technical system acknowledges that, or builds another layer of compression on top.</p>
+<p>Metric sovereignty is exercised when the geometry of political representation is controlled without authorization, visibility, or accountability. The response is not to find a neutral metric. There is no neutral metric. The response is to make the geometry public, make the choices legible, and maintain the institutions capable of contesting them.</p>
+<p>That is a different kind of ambition than the one that got us here. It is more honest about what Arrow proved.</p>
+<hr>
+</section>
+<section id="claims-and-status" class="level2">
+<h2 class="anchored" data-anchor-id="claims-and-status">Claims and status</h2>
+<div class="claim-box">
+<p><strong>Claim 1: Metric sovereignty.</strong> The power to define the geometry in which public claims are represented, compared, aggregated, and acted upon.</p>
+<p><em>Status: Core concept. Needs formal definition as a property of composite mechanism <span class="math inline">\(M = G \circ E\)</span>.</em></p>
+</div>
+<div class="claim-box">
+<p><strong>Claim 2: Axiom relocation.</strong> AI-assisted governance does not escape social choice impossibility. It relocates the violated axiom into representation, metric choice, directive selection, or data governance.</p>
+<p><em>Status: Core mathematical frame. Formal proposition in appendix.</em></p>
+</div>
+<div class="claim-box">
+<p><strong>Claim 3: Capitalism as projection control.</strong> Modern capitalism shapes democratic outcomes by controlling which dimensions of welfare survive political projection.</p>
+<p><em>Status: Projection-control channel is formalizable. Preference-formation channel requires empirical care. Gilens-Page (2014) is supportive but contested; cite with qualification.</em></p>
+</div>
+<div class="claim-box">
+<p><strong>Claim 4: Non-dictatorship over persons is insufficient.</strong> A system can satisfy Arrow’s non-dictatorship condition over voters while imposing directive dictatorship.</p>
+<p><em>Status: Provable. Formal example in appendix.</em></p>
+</div>
+<div class="claim-box">
+<p><strong>Claim 5: Rights are constraints, not prices.</strong> Representing a constitutional right as a loss function term demotes it from constraint to preference.</p>
+<p><em>Status: Philosophically defensible. Needs legal theory grounding. Dworkin’s “rights as trumps” is the closest theoretical anchor.</em></p>
+</div>
+<div class="claim-box">
+<p><strong>Claim 6: Strategy-proofness migrates to data governance.</strong> Gibbard-Satterthwaite guarantees manipulation opportunities; in AI governance, the manipulable object is the training distribution.</p>
+<p><em>Status: Strong mechanism claim. Needs formal model and examples.</em></p>
+</div>
+<hr>
+<p><em>This document is a living draft. Sections will be revised as formal results develop. Comments welcome at ianthelfrich@gmail.com.</em></p>
+<p><em>Last updated: May 2026.</em></p>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Arrow’s non-dictatorship condition is about preferences, not about people. The condition says no person’s preference ordering always determines the social ranking. A directive that always dominates voter preferences satisfies the letter of non-dictatorship — no person is decisive — while violating its spirit entirely. The formal proposition is in the appendix.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ihelfrich/metric-sovereignty/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ihelfrich/metric-sovereignty/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,134 @@
+---
+title: "Appendix: Formal Results"
+subtitle: "Proofs for the propositions in Metric Sovereignty"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+This appendix contains formal versions of the three main propositions. The main text gestures at these; the proofs are here. Notation follows the main text.
+
+---
+
+## Proposition A: IIA fails at the representation stage {#prop-a}
+
+**Setup.** Let $X = \{A, B, C\}$ be the alternative set. Let $N = \{1, 2, 3\}$ be the voter set. Each voter $i$ has a preference ordering $\succ_i$ over $X$.
+
+Let $E : X \times \mathcal{D} \to \mathbb{R}^d$ be an embedding rule that maps alternatives to positions in $\mathbb{R}^d$, where $\mathcal{D}$ is a dataset of voter-alternative interactions. Suppose $E$ is **context-dependent**: the position of each alternative depends on which other alternatives are in the choice set and how they appear in the training data. This is the standard behavior of any embedding trained on the full alternative set jointly (PCA, word2vec-style co-occurrence embeddings, neural latent-space models).
+
+Let $G : \mathbb{R}^d \to X$ be a metric choice rule: $G$ selects the alternative minimizing weighted distance from the voter distribution in the learned space.
+
+**Proposition A.** There exist preference profiles $\mathbf{P}$ and $\mathbf{P}'$ and alternatives $A, B, C$ such that:
+
+1. All voters' pairwise rankings of $A$ versus $B$ are identical under $\mathbf{P}$ and $\mathbf{P}'$.
+2. $G(E(\cdot; \mathbf{P}))$ selects a different alternative from $G(E(\cdot; \mathbf{P}'))$ when $C$ is present.
+
+In particular, the social comparison of $A$ and $B$ can change when $C$ is added, even with unchanged individual $A$-vs-$B$ rankings. IIA fails.
+
+**Proof.** Construct a concrete example in $\mathbb{R}^1$.
+
+*Step 1 (two alternatives).* Suppose $X_0 = \{A, B\}$. The embedding $E$ maps $A \mapsto -1$ and $B \mapsto 1$ along the real line. Three voters have ideal points at $z_1 = -0.5$, $z_2 = -0.1$, $z_3 = 0.3$. Voter centroid: $\bar{z} = (-0.5 - 0.1 + 0.3)/3 = -0.1$.
+
+Distances: $d(\bar{z}, A) = |-0.1 - (-1)| = 0.9$, $d(\bar{z}, B) = |-0.1 - 1| = 1.1$.
+
+$G$ selects $A$.
+
+*Step 2 (add alternative $C$).* Extend to $X_1 = \{A, B, C\}$. The embedding now represents all three alternatives jointly. Suppose $C$ is similar to $A$ in the training data (a near-substitute). Under a PCA-style embedding fitted to the three-alternative structure, the principal component rotates to spread variance across the three options. One standard outcome: $A \mapsto (-1, 0.2)$, $B \mapsto (1, 0)$, $C \mapsto (-0.8, -0.3)$ in $\mathbb{R}^2$.
+
+The voter centroids also map to the new space: $\bar{z}' \approx (-0.1, 0.05)$ (voter data unchanged; their latent positions are re-estimated in the new embedding).
+
+Distances: $d(\bar{z}', A) = \sqrt{0.81 + 0.0225} \approx 0.913$, $d(\bar{z}', B) = \sqrt{1.21 + 0.0025} \approx 1.101$, $d(\bar{z}', C) = \sqrt{0.49 + 0.1225} \approx 0.782$.
+
+$G$ selects $C$.
+
+*Step 3 (IIA check).* All voters' pairwise rankings of $A$ versus $B$ are unchanged: voters 1 and 2 prefer $A$, voter 3 prefers $B$. But the social choice changed from $A$ (with $X_0$) to $C$ (with $X_1$). IIA fails: the social comparison of $A$ and $B$ is affected by the addition of $C$, even though no individual's ranking of $A$ versus $B$ changed. $\square$
+
+**Remark.** This is not a pathological example. It is the generic behavior of context-dependent embeddings. Any embedding that learns positions jointly across the alternative set will exhibit this property when the alternative set changes. The IIA violation is structural, not accidental.
+
+---
+
+## Proposition B: Directive dictatorship {#prop-b}
+
+**Setup.** The decision rule is:
+
+$$a^* \in \arg\min_{a \in X} \left[ L_V(a) + \lambda \, R(a, \delta) \right]$$
+
+where $L_V(a) = \sum_i w_i \, d(z_i, y_a)^2$ is the voter loss for alternative $a$, $R(a, \delta) \geq 0$ measures violation of directive $\delta$, and $\lambda > 0$ is the directive multiplier. Assume $w_i > 0$ for all $i$, $\sum_i w_i = 1$.
+
+**Proposition B.** Let $\Delta L = \max_{a, a' \in X} |L_V(a) - L_V(a')|$ be the maximum variation in voter loss across alternatives. If $\lambda > \Delta L$ and the directive $\delta$ strictly ranks alternatives by $R(\cdot, \delta)$, then the directive determines the choice of $a^*$, regardless of the voter distribution.
+
+Formally: if $R(a^*, \delta) < R(a', \delta)$ for all $a' \neq a^*$, and $\lambda > \Delta L$, then $a^*$ is the unique minimizer of the full loss.
+
+**Proof.** For any $a' \neq a^*$:
+
+$$L_V(a^*) + \lambda R(a^*, \delta) \leq L_V(a^*) + \lambda \cdot 0 = L_V(a^*)$$
+
+For $a'$, using $R(a', \delta) \geq R(a^*, \delta) + \varepsilon$ for some $\varepsilon > 0$ (since the directive strictly ranks):
+
+$$L_V(a') + \lambda R(a', \delta) \geq L_V(a') + \lambda(R(a^*, \delta) + \varepsilon)$$
+
+The difference is:
+
+$$[L_V(a') + \lambda R(a', \delta)] - [L_V(a^*) + \lambda R(a^*, \delta)] \geq [L_V(a') - L_V(a^*)] + \lambda \varepsilon$$
+
+Since $L_V(a') - L_V(a^*) \geq -\Delta L$ and $\lambda > \Delta L$:
+
+$$\geq -\Delta L + \lambda \varepsilon > 0$$
+
+when $\lambda > \Delta L / \varepsilon$. Taking $\varepsilon$ to be the minimum gap in the directive's strict ranking, the result follows. $\square$
+
+**Arrow connection.** Arrow's non-dictatorship condition says no single *person* always determines the outcome. Proposition B shows the directive can always determine the outcome when $\lambda$ is large enough, with no single person being decisive. The system is non-dictatorial in Arrow's sense over voters; it is dictatorial in Arrow's sense over directives. The formal structure is identical: one actor's ordering always determines the social ranking.
+
+**Remark on $\lambda$.** The proposition requires $\lambda > \Delta L$. In practice, $\lambda$ is set by whoever deploys the system. There is no legislative process that determines $\lambda$. It is a tuning parameter in the technical documentation.
+
+---
+
+## Proposition C: Projection capture {#prop-c}
+
+**Setup.** Let $W \in \mathbb{R}^K$ be the aggregate welfare vector of the polity, with dimension $K$ large. The political system observes only a projection:
+
+$$\tilde{W} = \Pi W, \quad \Pi \in \mathbb{R}^{k \times K}, \quad k \ll K$$
+
+The projection $\Pi$ selects which $k$ dimensions of welfare are politically visible and at what weight. Collective choice is made over $\tilde{W}$: the social choice function $F$ acts on $\Pi W$, not on $W$.
+
+**Proposition C.** Let $a^* = \arg\max_a F(\Pi W, a)$ be the socially chosen alternative under projection $\Pi$. Suppose there exists an alternative projection $\Pi'$ such that:
+
+$$\arg\max_a F(\Pi' W, a) = a' \neq a^*$$
+
+Then there exists a mechanism that changes the collective choice from $a^*$ to $a'$ by shifting $\Pi$ to $\Pi'$, without changing any voter's underlying welfare $W_i$ or their revealed preferences over the dimensions of $W$ that both projections observe.
+
+**Proof.** By construction. $\Pi$ and $\Pi'$ differ in which dimensions they weight. If $a^*$ maximizes the social criterion in the subspace selected by $\Pi$, and $a'$ maximizes it in the subspace selected by $\Pi'$, then changing which dimensions are politically visible changes the outcome. Voter welfare $W_i$ is unchanged throughout; only the observation structure has changed. $\square$
+
+**Institutional translation.** The mechanism by which organized capital influences $\Pi$ is not necessarily explicit. It operates through:
+
+- *Data governance*: which welfare outcomes get measured and published (BLS employment series vs. alternative measures, official poverty thresholds vs. supplemental measures)
+- *Regulatory scope*: which harms are defined as harms subject to regulatory jurisdiction and which are externalities
+- *Agenda control*: which policy comparisons get commissioned, which comparisons never get made
+- *Benchmark capture*: which metrics define agency success and therefore shape what data agencies collect
+
+Each of these is a mechanism for moving $\Pi$ without moving $W$. The welfare of future generations, of non-citizen residents, of non-human entities affected by economic decisions, and of workers in sectors with weak organizational capacity enters $\Pi W$ at low weight or zero. This is not because those groups have weak preferences. It is because the projection infrastructure assigns low resolution to their claims.
+
+---
+
+## On Chichilnisky's topological proof {#chichilnisky}
+
+The topological argument in the main text follows Chichilnisky (1982). The key steps, for readers who want the proof rather than the summary:
+
+**Preferences as directions.** For two alternatives, a preference ordering corresponds to a gradient direction in $\mathbb{R}^2$ — which alternative the person's utility is increasing toward. Normalizing, this is a point on the unit circle $S^1$. Social aggregation is a map $f : (S^1)^k \to S^1$.
+
+**The unanimity constraint pins the degree.** The fundamental group of $S^1$ is $\pi_1(S^1) = \mathbb{Z}$: the integers, generated by the loop that winds once around the circle. Any continuous map $g : S^1 \to S^1$ has an integer degree $\deg(g)$ counting net windings. If $g$ and $h$ are homotopic, $\deg(g) = \deg(h)$.
+
+The unanimity (Pareto) condition says $f(p, p, \ldots, p) = p$: when all voters agree, society agrees. This means $f$ restricted to the diagonal $\Delta \subset (S^1)^k$ is the identity map, which has degree 1. The induced map on fundamental groups satisfies $f_*(1, 1, \ldots, 1) = 1$.
+
+**The anonymity constraint forces a symmetric splitting.** Anonymity means $f(p_1, \ldots, p_k) = f(p_{\sigma(1)}, \ldots, p_{\sigma(k)})$ for any permutation $\sigma$. The induced map $f_* : \mathbb{Z}^k \to \mathbb{Z}$ is a group homomorphism. The only symmetric linear maps $\mathbb{Z}^k \to \mathbb{Z}$ are of the form $f_*(a_1, \ldots, a_k) = c \sum_i a_i$ for some integer $c$.
+
+**The contradiction.** From unanimity: $f_*(1, \ldots, 1) = ck = 1$. So $ck = 1$ must have an integer solution. For $k \geq 2$, this requires $c = 1/k$, which is not an integer. No solution exists.
+
+Therefore no continuous anonymous Pareto-optimal map $f : (S^1)^k \to S^1$ exists. $\square$
+
+**Why this matters for AI embeddings.** Preference space is $S^{n-1}$. Euclidean latent space $\mathbb{R}^d$ is contractible: $\pi_1(\mathbb{R}^d) = 0$. The embedding $E : (S^{n-1})^k \to \mathbb{R}^d$ routes through a space with trivial fundamental group. The topological obstruction does not disappear. It is absorbed into $E$. The embedding must violate continuity, anonymity, or the Pareto condition. The axiom relocation claim follows directly from Chichilnisky's proof.
+
+---
+
+*Notation follows the main text. Proofs that require external results are marked [VERIFY] in the draft; those markings will be resolved before any version is circulated.*

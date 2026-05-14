@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix: Formal Results – Metric Sovereignty</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8afbf581e389c7e3dfb7385725caaf67.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Metric Sovereignty</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Paper</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../appendix/proofs.html" aria-current="page"> 
+<span class="menu-text">Proofs</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ihelfrich/metric-sovereignty"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sections</h2>
+   
+  <ul class="collapse">
+  <li><a href="#prop-a" id="toc-prop-a" class="nav-link active" data-scroll-target="#prop-a">Proposition A: IIA fails at the representation stage</a></li>
+  <li><a href="#prop-b" id="toc-prop-b" class="nav-link" data-scroll-target="#prop-b">Proposition B: Directive dictatorship</a></li>
+  <li><a href="#prop-c" id="toc-prop-c" class="nav-link" data-scroll-target="#prop-c">Proposition C: Projection capture</a></li>
+  <li><a href="#chichilnisky" id="toc-chichilnisky" class="nav-link" data-scroll-target="#chichilnisky">On Chichilnisky’s topological proof</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/ihelfrich/metric-sovereignty/edit/main/appendix/proofs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ihelfrich/metric-sovereignty/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Appendix: Formal Results</h1>
+<p class="subtitle lead">Proofs for the propositions in Metric Sovereignty</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This appendix contains formal versions of the three main propositions. The main text gestures at these; the proofs are here. Notation follows the main text.</p>
+<hr>
+<section id="prop-a" class="level2">
+<h2 class="anchored" data-anchor-id="prop-a">Proposition A: IIA fails at the representation stage</h2>
+<p><strong>Setup.</strong> Let <span class="math inline">\(X = \{A, B, C\}\)</span> be the alternative set. Let <span class="math inline">\(N = \{1, 2, 3\}\)</span> be the voter set. Each voter <span class="math inline">\(i\)</span> has a preference ordering <span class="math inline">\(\succ_i\)</span> over <span class="math inline">\(X\)</span>.</p>
+<p>Let <span class="math inline">\(E : X \times \mathcal{D} \to \mathbb{R}^d\)</span> be an embedding rule that maps alternatives to positions in <span class="math inline">\(\mathbb{R}^d\)</span>, where <span class="math inline">\(\mathcal{D}\)</span> is a dataset of voter-alternative interactions. Suppose <span class="math inline">\(E\)</span> is <strong>context-dependent</strong>: the position of each alternative depends on which other alternatives are in the choice set and how they appear in the training data. This is the standard behavior of any embedding trained on the full alternative set jointly (PCA, word2vec-style co-occurrence embeddings, neural latent-space models).</p>
+<p>Let <span class="math inline">\(G : \mathbb{R}^d \to X\)</span> be a metric choice rule: <span class="math inline">\(G\)</span> selects the alternative minimizing weighted distance from the voter distribution in the learned space.</p>
+<p><strong>Proposition A.</strong> There exist preference profiles <span class="math inline">\(\mathbf{P}\)</span> and <span class="math inline">\(\mathbf{P}'\)</span> and alternatives <span class="math inline">\(A, B, C\)</span> such that:</p>
+<ol type="1">
+<li>All voters’ pairwise rankings of <span class="math inline">\(A\)</span> versus <span class="math inline">\(B\)</span> are identical under <span class="math inline">\(\mathbf{P}\)</span> and <span class="math inline">\(\mathbf{P}'\)</span>.</li>
+<li><span class="math inline">\(G(E(\cdot; \mathbf{P}))\)</span> selects a different alternative from <span class="math inline">\(G(E(\cdot; \mathbf{P}'))\)</span> when <span class="math inline">\(C\)</span> is present.</li>
+</ol>
+<p>In particular, the social comparison of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> can change when <span class="math inline">\(C\)</span> is added, even with unchanged individual <span class="math inline">\(A\)</span>-vs-<span class="math inline">\(B\)</span> rankings. IIA fails.</p>
+<p><strong>Proof.</strong> Construct a concrete example in <span class="math inline">\(\mathbb{R}^1\)</span>.</p>
+<p><em>Step 1 (two alternatives).</em> Suppose <span class="math inline">\(X_0 = \{A, B\}\)</span>. The embedding <span class="math inline">\(E\)</span> maps <span class="math inline">\(A \mapsto -1\)</span> and <span class="math inline">\(B \mapsto 1\)</span> along the real line. Three voters have ideal points at <span class="math inline">\(z_1 = -0.5\)</span>, <span class="math inline">\(z_2 = -0.1\)</span>, <span class="math inline">\(z_3 = 0.3\)</span>. Voter centroid: <span class="math inline">\(\bar{z} = (-0.5 - 0.1 + 0.3)/3 = -0.1\)</span>.</p>
+<p>Distances: <span class="math inline">\(d(\bar{z}, A) = |-0.1 - (-1)| = 0.9\)</span>, <span class="math inline">\(d(\bar{z}, B) = |-0.1 - 1| = 1.1\)</span>.</p>
+<p><span class="math inline">\(G\)</span> selects <span class="math inline">\(A\)</span>.</p>
+<p><em>Step 2 (add alternative <span class="math inline">\(C\)</span>).</em> Extend to <span class="math inline">\(X_1 = \{A, B, C\}\)</span>. The embedding now represents all three alternatives jointly. Suppose <span class="math inline">\(C\)</span> is similar to <span class="math inline">\(A\)</span> in the training data (a near-substitute). Under a PCA-style embedding fitted to the three-alternative structure, the principal component rotates to spread variance across the three options. One standard outcome: <span class="math inline">\(A \mapsto (-1, 0.2)\)</span>, <span class="math inline">\(B \mapsto (1, 0)\)</span>, <span class="math inline">\(C \mapsto (-0.8, -0.3)\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<p>The voter centroids also map to the new space: <span class="math inline">\(\bar{z}' \approx (-0.1, 0.05)\)</span> (voter data unchanged; their latent positions are re-estimated in the new embedding).</p>
+<p>Distances: <span class="math inline">\(d(\bar{z}', A) = \sqrt{0.81 + 0.0225} \approx 0.913\)</span>, <span class="math inline">\(d(\bar{z}', B) = \sqrt{1.21 + 0.0025} \approx 1.101\)</span>, <span class="math inline">\(d(\bar{z}', C) = \sqrt{0.49 + 0.1225} \approx 0.782\)</span>.</p>
+<p><span class="math inline">\(G\)</span> selects <span class="math inline">\(C\)</span>.</p>
+<p><em>Step 3 (IIA check).</em> All voters’ pairwise rankings of <span class="math inline">\(A\)</span> versus <span class="math inline">\(B\)</span> are unchanged: voters 1 and 2 prefer <span class="math inline">\(A\)</span>, voter 3 prefers <span class="math inline">\(B\)</span>. But the social choice changed from <span class="math inline">\(A\)</span> (with <span class="math inline">\(X_0\)</span>) to <span class="math inline">\(C\)</span> (with <span class="math inline">\(X_1\)</span>). IIA fails: the social comparison of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is affected by the addition of <span class="math inline">\(C\)</span>, even though no individual’s ranking of <span class="math inline">\(A\)</span> versus <span class="math inline">\(B\)</span> changed. <span class="math inline">\(\square\)</span></p>
+<p><strong>Remark.</strong> This is not a pathological example. It is the generic behavior of context-dependent embeddings. Any embedding that learns positions jointly across the alternative set will exhibit this property when the alternative set changes. The IIA violation is structural, not accidental.</p>
+<hr>
+</section>
+<section id="prop-b" class="level2">
+<h2 class="anchored" data-anchor-id="prop-b">Proposition B: Directive dictatorship</h2>
+<p><strong>Setup.</strong> The decision rule is:</p>
+<p><span class="math display">\[a^* \in \arg\min_{a \in X} \left[ L_V(a) + \lambda \, R(a, \delta) \right]\]</span></p>
+<p>where <span class="math inline">\(L_V(a) = \sum_i w_i \, d(z_i, y_a)^2\)</span> is the voter loss for alternative <span class="math inline">\(a\)</span>, <span class="math inline">\(R(a, \delta) \geq 0\)</span> measures violation of directive <span class="math inline">\(\delta\)</span>, and <span class="math inline">\(\lambda &gt; 0\)</span> is the directive multiplier. Assume <span class="math inline">\(w_i &gt; 0\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(\sum_i w_i = 1\)</span>.</p>
+<p><strong>Proposition B.</strong> Let <span class="math inline">\(\Delta L = \max_{a, a' \in X} |L_V(a) - L_V(a')|\)</span> be the maximum variation in voter loss across alternatives. If <span class="math inline">\(\lambda &gt; \Delta L\)</span> and the directive <span class="math inline">\(\delta\)</span> strictly ranks alternatives by <span class="math inline">\(R(\cdot, \delta)\)</span>, then the directive determines the choice of <span class="math inline">\(a^*\)</span>, regardless of the voter distribution.</p>
+<p>Formally: if <span class="math inline">\(R(a^*, \delta) &lt; R(a', \delta)\)</span> for all <span class="math inline">\(a' \neq a^*\)</span>, and <span class="math inline">\(\lambda &gt; \Delta L\)</span>, then <span class="math inline">\(a^*\)</span> is the unique minimizer of the full loss.</p>
+<p><strong>Proof.</strong> For any <span class="math inline">\(a' \neq a^*\)</span>:</p>
+<p><span class="math display">\[L_V(a^*) + \lambda R(a^*, \delta) \leq L_V(a^*) + \lambda \cdot 0 = L_V(a^*)\]</span></p>
+<p>For <span class="math inline">\(a'\)</span>, using <span class="math inline">\(R(a', \delta) \geq R(a^*, \delta) + \varepsilon\)</span> for some <span class="math inline">\(\varepsilon &gt; 0\)</span> (since the directive strictly ranks):</p>
+<p><span class="math display">\[L_V(a') + \lambda R(a', \delta) \geq L_V(a') + \lambda(R(a^*, \delta) + \varepsilon)\]</span></p>
+<p>The difference is:</p>
+<p><span class="math display">\[[L_V(a') + \lambda R(a', \delta)] - [L_V(a^*) + \lambda R(a^*, \delta)] \geq [L_V(a') - L_V(a^*)] + \lambda \varepsilon\]</span></p>
+<p>Since <span class="math inline">\(L_V(a') - L_V(a^*) \geq -\Delta L\)</span> and <span class="math inline">\(\lambda &gt; \Delta L\)</span>:</p>
+<p><span class="math display">\[\geq -\Delta L + \lambda \varepsilon &gt; 0\]</span></p>
+<p>when <span class="math inline">\(\lambda &gt; \Delta L / \varepsilon\)</span>. Taking <span class="math inline">\(\varepsilon\)</span> to be the minimum gap in the directive’s strict ranking, the result follows. <span class="math inline">\(\square\)</span></p>
+<p><strong>Arrow connection.</strong> Arrow’s non-dictatorship condition says no single <em>person</em> always determines the outcome. Proposition B shows the directive can always determine the outcome when <span class="math inline">\(\lambda\)</span> is large enough, with no single person being decisive. The system is non-dictatorial in Arrow’s sense over voters; it is dictatorial in Arrow’s sense over directives. The formal structure is identical: one actor’s ordering always determines the social ranking.</p>
+<p><strong>Remark on <span class="math inline">\(\lambda\)</span>.</strong> The proposition requires <span class="math inline">\(\lambda &gt; \Delta L\)</span>. In practice, <span class="math inline">\(\lambda\)</span> is set by whoever deploys the system. There is no legislative process that determines <span class="math inline">\(\lambda\)</span>. It is a tuning parameter in the technical documentation.</p>
+<hr>
+</section>
+<section id="prop-c" class="level2">
+<h2 class="anchored" data-anchor-id="prop-c">Proposition C: Projection capture</h2>
+<p><strong>Setup.</strong> Let <span class="math inline">\(W \in \mathbb{R}^K\)</span> be the aggregate welfare vector of the polity, with dimension <span class="math inline">\(K\)</span> large. The political system observes only a projection:</p>
+<p><span class="math display">\[\tilde{W} = \Pi W, \quad \Pi \in \mathbb{R}^{k \times K}, \quad k \ll K\]</span></p>
+<p>The projection <span class="math inline">\(\Pi\)</span> selects which <span class="math inline">\(k\)</span> dimensions of welfare are politically visible and at what weight. Collective choice is made over <span class="math inline">\(\tilde{W}\)</span>: the social choice function <span class="math inline">\(F\)</span> acts on <span class="math inline">\(\Pi W\)</span>, not on <span class="math inline">\(W\)</span>.</p>
+<p><strong>Proposition C.</strong> Let <span class="math inline">\(a^* = \arg\max_a F(\Pi W, a)\)</span> be the socially chosen alternative under projection <span class="math inline">\(\Pi\)</span>. Suppose there exists an alternative projection <span class="math inline">\(\Pi'\)</span> such that:</p>
+<p><span class="math display">\[\arg\max_a F(\Pi' W, a) = a' \neq a^*\]</span></p>
+<p>Then there exists a mechanism that changes the collective choice from <span class="math inline">\(a^*\)</span> to <span class="math inline">\(a'\)</span> by shifting <span class="math inline">\(\Pi\)</span> to <span class="math inline">\(\Pi'\)</span>, without changing any voter’s underlying welfare <span class="math inline">\(W_i\)</span> or their revealed preferences over the dimensions of <span class="math inline">\(W\)</span> that both projections observe.</p>
+<p><strong>Proof.</strong> By construction. <span class="math inline">\(\Pi\)</span> and <span class="math inline">\(\Pi'\)</span> differ in which dimensions they weight. If <span class="math inline">\(a^*\)</span> maximizes the social criterion in the subspace selected by <span class="math inline">\(\Pi\)</span>, and <span class="math inline">\(a'\)</span> maximizes it in the subspace selected by <span class="math inline">\(\Pi'\)</span>, then changing which dimensions are politically visible changes the outcome. Voter welfare <span class="math inline">\(W_i\)</span> is unchanged throughout; only the observation structure has changed. <span class="math inline">\(\square\)</span></p>
+<p><strong>Institutional translation.</strong> The mechanism by which organized capital influences <span class="math inline">\(\Pi\)</span> is not necessarily explicit. It operates through:</p>
+<ul>
+<li><em>Data governance</em>: which welfare outcomes get measured and published (BLS employment series vs.&nbsp;alternative measures, official poverty thresholds vs.&nbsp;supplemental measures)</li>
+<li><em>Regulatory scope</em>: which harms are defined as harms subject to regulatory jurisdiction and which are externalities</li>
+<li><em>Agenda control</em>: which policy comparisons get commissioned, which comparisons never get made</li>
+<li><em>Benchmark capture</em>: which metrics define agency success and therefore shape what data agencies collect</li>
+</ul>
+<p>Each of these is a mechanism for moving <span class="math inline">\(\Pi\)</span> without moving <span class="math inline">\(W\)</span>. The welfare of future generations, of non-citizen residents, of non-human entities affected by economic decisions, and of workers in sectors with weak organizational capacity enters <span class="math inline">\(\Pi W\)</span> at low weight or zero. This is not because those groups have weak preferences. It is because the projection infrastructure assigns low resolution to their claims.</p>
+<hr>
+</section>
+<section id="chichilnisky" class="level2">
+<h2 class="anchored" data-anchor-id="chichilnisky">On Chichilnisky’s topological proof</h2>
+<p>The topological argument in the main text follows Chichilnisky (1982). The key steps, for readers who want the proof rather than the summary:</p>
+<p><strong>Preferences as directions.</strong> For two alternatives, a preference ordering corresponds to a gradient direction in <span class="math inline">\(\mathbb{R}^2\)</span> — which alternative the person’s utility is increasing toward. Normalizing, this is a point on the unit circle <span class="math inline">\(S^1\)</span>. Social aggregation is a map <span class="math inline">\(f : (S^1)^k \to S^1\)</span>.</p>
+<p><strong>The unanimity constraint pins the degree.</strong> The fundamental group of <span class="math inline">\(S^1\)</span> is <span class="math inline">\(\pi_1(S^1) = \mathbb{Z}\)</span>: the integers, generated by the loop that winds once around the circle. Any continuous map <span class="math inline">\(g : S^1 \to S^1\)</span> has an integer degree <span class="math inline">\(\deg(g)\)</span> counting net windings. If <span class="math inline">\(g\)</span> and <span class="math inline">\(h\)</span> are homotopic, <span class="math inline">\(\deg(g) = \deg(h)\)</span>.</p>
+<p>The unanimity (Pareto) condition says <span class="math inline">\(f(p, p, \ldots, p) = p\)</span>: when all voters agree, society agrees. This means <span class="math inline">\(f\)</span> restricted to the diagonal <span class="math inline">\(\Delta \subset (S^1)^k\)</span> is the identity map, which has degree 1. The induced map on fundamental groups satisfies <span class="math inline">\(f_*(1, 1, \ldots, 1) = 1\)</span>.</p>
+<p><strong>The anonymity constraint forces a symmetric splitting.</strong> Anonymity means <span class="math inline">\(f(p_1, \ldots, p_k) = f(p_{\sigma(1)}, \ldots, p_{\sigma(k)})\)</span> for any permutation <span class="math inline">\(\sigma\)</span>. The induced map <span class="math inline">\(f_* : \mathbb{Z}^k \to \mathbb{Z}\)</span> is a group homomorphism. The only symmetric linear maps <span class="math inline">\(\mathbb{Z}^k \to \mathbb{Z}\)</span> are of the form <span class="math inline">\(f_*(a_1, \ldots, a_k) = c \sum_i a_i\)</span> for some integer <span class="math inline">\(c\)</span>.</p>
+<p><strong>The contradiction.</strong> From unanimity: <span class="math inline">\(f_*(1, \ldots, 1) = ck = 1\)</span>. So <span class="math inline">\(ck = 1\)</span> must have an integer solution. For <span class="math inline">\(k \geq 2\)</span>, this requires <span class="math inline">\(c = 1/k\)</span>, which is not an integer. No solution exists.</p>
+<p>Therefore no continuous anonymous Pareto-optimal map <span class="math inline">\(f : (S^1)^k \to S^1\)</span> exists. <span class="math inline">\(\square\)</span></p>
+<p><strong>Why this matters for AI embeddings.</strong> Preference space is <span class="math inline">\(S^{n-1}\)</span>. Euclidean latent space <span class="math inline">\(\mathbb{R}^d\)</span> is contractible: <span class="math inline">\(\pi_1(\mathbb{R}^d) = 0\)</span>. The embedding <span class="math inline">\(E : (S^{n-1})^k \to \mathbb{R}^d\)</span> routes through a space with trivial fundamental group. The topological obstruction does not disappear. It is absorbed into <span class="math inline">\(E\)</span>. The embedding must violate continuity, anonymity, or the Pareto condition. The axiom relocation claim follows directly from Chichilnisky’s proof.</p>
+<hr>
+<p><em>Notation follows the main text. Proofs that require external results are marked [VERIFY] in the draft; those markings will be resolved before any version is circulated.</em></p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ihelfrich/metric-sovereignty/edit/main/appendix/proofs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ihelfrich/metric-sovereignty/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
